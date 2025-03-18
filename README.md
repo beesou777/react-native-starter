@@ -1,50 +1,96 @@
-# Welcome to your Expo app 👋
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+# React Native App
 
-## Get started
+This is a React Native app built using Expo, designed for mobile devices. It integrates various packages to enable a seamless experience across Android, iOS, and web platforms. The app uses Expo Router for navigation and implements common features such as vector icons, safe area handling, and more.
 
-1. Install dependencies
+## Features
 
-   ```bash
-   npm install
-   ```
+- **Navigation**: Uses React Navigation with both stack and bottom tabs.
+- **API Integration**: Utilizes Axios for network requests and React Query for data fetching.
+- **UI Components**: Implements Expo's UI components such as status bar, splash screen, and haptics.
+- **Styling**: Tailwind CSS integration via NativeWind.
+- **Platform Support**: Works across Android, iOS, and Web using Expo.
 
-2. Start the app
+## Setup
 
-   ```bash
-    npx expo start
-   ```
+### Prerequisites
 
-In the output, you'll find options to open the app in a
+- [Node.js](https://nodejs.org/) (>=16.x)
+- [Expo CLI](https://docs.expo.dev/get-started/installation/)
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+### Installation
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/beesou777/react-native-starter.git
+    cd react-native-starter
+    ```
 
-## Get a fresh project
+2. Install dependencies:
+    ```bash
+    npm install
+    ```
 
-When you're ready, run:
+### Running the App
 
+- To start the app on Android:
+    ```bash
+    npm run android
+    ```
+
+- To start the app on iOS:
+    ```bash
+    npm run ios
+    ```
+
+- To start the app in the web browser:
+    ```bash
+    npm run start
+    ```
+
+- To reset the project (if needed):
+    ```bash
+    npm run reset-project
+    ```
+
+### Running Tests
+
+To run the tests:
 ```bash
-npm run reset-project
+npm test
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+### Linting
 
-## Learn more
+To lint the project:
+```bash
+npm run lint
+```
 
-To learn more about developing your project with Expo, look at the following resources:
+## License
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details.
 
-## Join the community
+### LICENSE
 
-Join our community of developers creating universal apps.
+MIT License
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+Copyright (c) 2025 Your Name
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
