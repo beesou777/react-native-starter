@@ -15,7 +15,7 @@ This is a React Native app built using Expo, designed for mobile devices. It int
 
 ### Prerequisites
 
-- [Node.js](https://nodejs.org/) (>=16.x)
+- [Node.js](https://nodejs.org/) (>=20.x)
 - [Expo CLI](https://docs.expo.dev/get-started/installation/)
 
 ### Installation
