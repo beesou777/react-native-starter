@@ -19,7 +19,6 @@ const Navbar = () => {
       <View className="flex-row items-center justify-around h-full">
         {tabs.map((tab) => {
           const isActive = pathname === tab.route
-
           return (
             <TouchableOpacity
               key={tab.name}

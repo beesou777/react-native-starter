@@ -1,4 +1,4 @@
-import { ActivityIndicator, SafeAreaView, ScrollView, Text, TextInput, TouchableOpacity, View } from 'react-native'
+import { ActivityIndicator, Platform, SafeAreaView, ScrollView, Text, TextInput, TouchableNativeFeedback, TouchableOpacity, View } from 'react-native'
 import { Controller, useForm } from 'react-hook-form'
 import { useAuth } from '../context/auth-contenxt'
 import { LoginFormData, loginSchema } from './lib/schema'
@@ -68,6 +68,9 @@ export default function Login() {
                                 <Text className='text-red-500 text-sm mt-1'>{errors.username.message}</Text>
                             )}
                         </View>
+                        <View>
+
+                        </View>
 
                         <View className='mb-4'>
                             <Text className='mb-2 font-medium text-sm text-[#333]'>Password</Text>
@@ -82,7 +85,9 @@ export default function Login() {
                                             value={value}
                                             onChangeText={onChange}
                                             secureTextEntry={!showPassword}
-                                        /> <TouchableOpacity
+                                        />
+
+                                        <TouchableOpacity
                                             onPress={() => setShowPassword(!showPassword)}
                                             className='absolute top-3 right-3'
                                         >
@@ -101,17 +106,20 @@ export default function Login() {
                                 <Text className='text-red-500 text-sm mt-1'>{errors.password.message}</Text>
                             )}
                         </View>
-                        <TouchableOpacity
-                            className='bg-[#6366f1] p-4 rounded-md items-center mt-4 mb-4'
-                            onPress={handleSubmit(onSubmit)}
-                            disabled={isLoading}
-                        >
-                            {isLoading ? (
-                                <ActivityIndicator color="white" />
-                            ) : (
-                                <Text className='text-white font-medium'>Login</Text>
-                            )}
-                        </TouchableOpacity>
+                        <View>
+                            <TouchableNativeFeedback
+                                onPress={handleSubmit(onSubmit)}
+                                disabled={isLoading}
+                            >
+                                <View className='bg-[#6366f1] p-4 rounded-md items-center mt-4 mb-4'>
+                                    {isLoading ? (
+                                        <ActivityIndicator color="white" />
+                                    ) : (
+                                        <Text className='text-white font-medium'>Login</Text>
+                                    )}
+                                </View>
+                            </TouchableNativeFeedback>
+                        </View>
 
                         <View className='flex-row justify-center mt-4 mb-4'>
                             <Text className='text-gray-600'>Don't have an account? </Text>
