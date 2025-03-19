@@ -10,8 +10,8 @@ const Navbar = () => {
   const tabs = [
     { name: "Home", icon: "home-outline", route: "/" },
     { name: "Product", icon: "search-outline", route: "/product" },
-    { name: "Notifications", icon: "notifications-outline", route: "/notifications" },
-    { name: "Profile", icon: "person-outline", route: "/profile" },
+    { name: "Login", icon: "notifications-outline", route: "/login" },
+    { name: "Register", icon: "person-outline", route: "/register" },
   ]
 
   return (

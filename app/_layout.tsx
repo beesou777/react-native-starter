@@ -5,9 +5,9 @@ import React, { useEffect } from 'react';
 import 'react-native-reanimated';
 import "../global.css";
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
-import Navbar from '@/components/navbar';
 import { ActivityIndicator, View } from 'react-native';
-
+import { AuthProvider } from './(auth)/context/auth-contenxt';
+import Toast from "react-native-toast-message";
 SplashScreen.preventAutoHideAsync();
 
 const queryClient = new QueryClient();
@@ -33,10 +33,12 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <Navbar />
-      <Stack screenOptions={{ headerShown: false }}>
-        {children}
-      </Stack>
+      <AuthProvider>
+        <Stack screenOptions={{ headerShown: false }}>
+          {children}
+        </Stack>
+        <Toast />
+      </AuthProvider>
     </QueryClientProvider>
   );
 };
