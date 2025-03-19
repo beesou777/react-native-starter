@@ -1,30 +1,60 @@
 import React from "react"
-import { SafeAreaView, Text, View, ScrollView } from "react-native"
+import { Text, View, ScrollView, Image, TouchableOpacity } from "react-native"
 import { useAuth } from "../(auth)/context/auth-contenxt"
+import { useRouter } from "expo-router"
 
 const Home = () => {
-    const { user } = useAuth()
+    const { user, logout } = useAuth()
+    const router = useRouter()
 
     return (
-            <ScrollView className="flex-1 bg-gray-50">
-                <View className="p-4">
-                    <View className="bg-white rounded-xl p-6 shadow-sm mb-4">
-                        <Text className="text-2xl font-bold mb-2">Welcome, {user?.firstName || "User"}!</Text>
-                        <Text className="text-gray-600">You've successfully logged in to the application.</Text>
-                    </View>
+        <ScrollView className="flex-1 bg-gray-50">
+            <View className="p-4">
+                {user ? (
+                    <>
+                        <View className="bg-white rounded-xl p-6 shadow-lg mb-6">
+                            <Text className="text-2xl font-bold mb-2 text-blue-700">Welcome, {user?.firstName || "User"}!</Text>
+                            <Text className="text-gray-600 mb-4">You’ve successfully logged in to your account.</Text>
 
-                    <View className="bg-white rounded-xl p-6 shadow-sm">
-                        <Text className="text-lg font-semibold mb-2">Dashboard Content</Text>
-                        <Text className="text-gray-600 mb-4">
-                            This is your personalized dashboard. Here you can see your activity and important information.
+                            <Image
+                                source={{ uri: user?.image || "https://via.placeholder.com/150" }}
+                                style={{ width: 100, height: 100, borderRadius: 50, marginBottom: 10 }}
+                            />
+                        </View>
+
+                        <View className="bg-white rounded-xl p-6 shadow-lg mb-6">
+                            <Text className="text-lg font-semibold mb-2 text-gray-800">Dashboard Content</Text>
+                            <Text className="text-gray-600 mb-4">
+                                This is your personalized dashboard. You can track your progress and view your activity.
+                            </Text>
+
+                            <View className="bg-blue-50 p-4 rounded-lg mb-4">
+                                <Text className="text-blue-800 font-medium">Your account is active and in good standing.</Text>
+                            </View>
+                            <View>
+                                <TouchableOpacity className="bg-red-100 p-2 text-center rounded-lg font-medium" onPress={() => logout()}>Logout</TouchableOpacity>
+                            </View>
+                        </View>
+                    </>
+                ) : (
+                    <View className="bg-white rounded-xl p-6 shadow-lg">
+                        <Text className="text-2xl font-bold text-center text-gray-700">Welcome</Text>
+                        <Text className="text-gray-600 text-center mt-2 mb-4">
+                            Please log in to access your personalized dashboard and track your fitness journey.
                         </Text>
 
-                        <View className="bg-blue-50 p-4 rounded-lg">
-                            <Text className="text-blue-800 font-medium">Your account is active and in good standing.</Text>
+                        <View className="flex items-center bg-gray-300">
+                            <Image
+                                source={{ uri: "https://via.placeholder.com/150" }}
+                                style={{ width: 150, height: 150, marginBottom: 10 }}
+                            />
                         </View>
+
+                        <TouchableOpacity className="text-center text-blue-600 font-medium mt-4" onPress={() => router.push("/login")}>Log in to get started!</TouchableOpacity>
                     </View>
-                </View>
-            </ScrollView>
+                )}
+            </View>
+        </ScrollView>
     )
 }
 

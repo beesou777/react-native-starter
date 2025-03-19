@@ -135,7 +135,6 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   const logout = async () => {
     setIsLoading(true)
-
     try {
       // Clear stored data
       await AsyncStorage.removeItem("token")
