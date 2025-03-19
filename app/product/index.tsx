@@ -1,12 +1,12 @@
 import React from 'react';
-import { Text, ScrollView, FlatList } from 'react-native';
+import { Text, FlatList, SafeAreaView } from 'react-native';
 import { useQuery } from '@tanstack/react-query';
 import { axiosInstance } from '@/utils/axios';
 import RenderProducts from './components/render-products';
 
 // Function to fetch product data
 const fetchProductsData = async () => {
-    const response = await axiosInstance.get('https://dummyjson.com/products');
+    const response = await axiosInstance.get('/products');
     const data = await response.data;
     return data.products;
 };
@@ -26,13 +26,14 @@ const ProductPage = () => {
     }
 
     return (
-        <ScrollView className="flex-1 p-4 bg-white">
+        <SafeAreaView style={{ flex: 1 }}>
             <FlatList
-                data={data}
-                keyExtractor={(item) => item.id.toString()}
-                renderItem={RenderProducts}
-            />
-        </ScrollView>
+            data={data}
+            keyExtractor={(item) => item.id.toString()}
+            renderItem={RenderProducts}
+            contentContainerStyle={{ padding: 16, backgroundColor: 'white' }}
+        />
+        </SafeAreaView>
     );
 };
 

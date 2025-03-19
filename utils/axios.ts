@@ -2,7 +2,7 @@ import axios from "axios";
 import Cookies from "js-cookie";
 
 export const axiosInstance = axios.create({
-  baseURL: typeof window !== "undefined" ? window.location.origin : "",
+  baseURL: "https://dummyjson.com",
   timeout: 15000,
 });
 

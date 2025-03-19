@@ -10,7 +10,7 @@ This is a React Native app built using Expo, designed for mobile devices. It int
 - **UI Components**: Implements Expo's UI components such as status bar, splash screen, and haptics.
 - **Styling**: Tailwind CSS integration via NativeWind.
 - **Platform Support**: Works across Android, iOS, and Web using Expo.
-
+- **Icons**: [text](https://oblador.github.io/react-native-vector-icons/) this link for icons (usage on navbar.tsx) note: to use import Icon from "react-native-vector-icons/Ionicons" here Ionicons is the container you can use /AntDesign or other 
 ## Setup
 
 ### Prerequisites
