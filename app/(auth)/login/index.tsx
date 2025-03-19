@@ -106,12 +106,12 @@ export default function Login() {
                                 <Text className='text-red-500 text-sm mt-1'>{errors.password.message}</Text>
                             )}
                         </View>
-                        <View>
+                        <View className='w-full'>
                             <TouchableNativeFeedback
                                 onPress={handleSubmit(onSubmit)}
                                 disabled={isLoading}
                             >
-                                <View className='bg-[#6366f1] p-4 rounded-md items-center mt-4 mb-4'>
+                                <View className='bg-[#6366f1] p-4 rounded-md items-center mt-4 mb-4 w-full'>
                                     {isLoading ? (
                                         <ActivityIndicator color="white" />
                                     ) : (
