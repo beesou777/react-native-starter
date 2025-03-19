@@ -7,6 +7,13 @@ export const useToast = () => {
       position: "top",
       text1: type === "success" ? "Success!" : "Error",
       text2: message,
+      text1Style: {
+        fontSize: 16,
+      },
+      text2Style: {
+        fontSize: 14,
+      },
+      visibilityTime: 2000,
     });
   };
 

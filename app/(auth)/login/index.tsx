@@ -49,7 +49,6 @@ export default function Login() {
 
                 <View className='bg-white rounded-lg p-5 shadow-[0_2px_4px_rgba(0,_0,_0,_0.1)] mb-16'>
                     <View className='space-y-4'>
-
                         <View className='mb-4'>
                             <Text className='mb-2 font-medium text-sm text-[#333]'>Username</Text>
                             <Controller

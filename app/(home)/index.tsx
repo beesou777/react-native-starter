@@ -32,7 +32,9 @@ const Home = () => {
                                 <Text className="text-blue-800 font-medium">Your account is active and in good standing.</Text>
                             </View>
                             <View>
-                                <TouchableOpacity className="bg-red-100 p-2 text-center rounded-lg font-medium" onPress={() => logout()}>Logout</TouchableOpacity>
+                                <TouchableOpacity className="bg-red-100 p-2 rounded-lg" onPress={() => logout()}>
+                                    <Text className="text-center font-medium">Logout</Text>
+                                </TouchableOpacity>
                             </View>
                         </View>
                     </>
@@ -42,7 +44,6 @@ const Home = () => {
                         <Text className="text-gray-600 text-center mt-2 mb-4">
                             Please log in to access your personalized dashboard and track your fitness journey.
                         </Text>
-
                         <View className="flex items-center bg-gray-300">
                             <Image
                                 source={{ uri: "https://via.placeholder.com/150" }}
@@ -50,7 +51,13 @@ const Home = () => {
                             />
                         </View>
 
-                        <TouchableOpacity className="text-center text-blue-600 font-medium mt-4" onPress={() => router.push("/login")}>Log in to get started!</TouchableOpacity>
+                        <View>
+                            <TouchableOpacity className="mt-4" onPress={() => router.push("/login")}>
+                                <Text className="text-center text-blue-600 font-medium">
+                                    Log in to get started!
+                                </Text>
+                            </TouchableOpacity>
+                        </View>
                     </View>
                 )}
             </View>
