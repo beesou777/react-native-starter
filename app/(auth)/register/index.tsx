@@ -1,12 +1,13 @@
 import { ActivityIndicator, SafeAreaView, ScrollView, Text, TextInput, TouchableOpacity, View } from 'react-native'
 import { Controller, useForm } from 'react-hook-form'
-import { useAuth } from '../context/auth-contenxt'
+import { useAuth } from '@/lib/auth-context'
 import { RegisterFormData, registerSchema } from './lib/schema'
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useRouter } from 'expo-router'
 import { useState } from 'react'
 import Icon from "react-native-vector-icons/Ionicons"
 import { useToast } from '@/hooks/useToast'
+import React from 'react'
 
 export default function Register() {
     const [showPassword, setShowPassword] = useState(false)

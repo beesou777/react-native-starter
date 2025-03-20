@@ -1,6 +1,6 @@
 import React from "react"
 import { Text, View, ScrollView, Image, TouchableOpacity } from "react-native"
-import { useAuth } from "../(auth)/context/auth-contenxt"
+import { useAuth } from "@/lib/auth-context"
 import { useRouter } from "expo-router"
 
 const Home = () => {

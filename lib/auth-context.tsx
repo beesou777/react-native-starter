@@ -1,6 +1,9 @@
+"use client"
+
 import type React from "react"
 import { createContext, useState, useContext, useEffect } from "react"
 import AsyncStorage from "@react-native-async-storage/async-storage"
+
 type User = {
   id: number
   username: string
@@ -86,13 +89,13 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       setUser(data)
       return {
         success: true,
-        message: "Login successful"
+        message: "Login successful",
       }
     } catch (e: any) {
       setError(e.message || "Something went wrong")
       return {
         success: false,
-        message: "Login failed"
+        message: "Login failed",
       }
     } finally {
       setIsLoading(false)
@@ -118,7 +121,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
       return {
         success: true,
-        message: "Registration successful"
+        message: "Registration successful",
       }
 
       // Registration successful, but we don't log the user in automatically
@@ -126,7 +129,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       setError(e.message || "Something went wrong")
       return {
         success: false,
-        message: "Registration failed"
+        message: "Registration failed",
       }
     } finally {
       setIsLoading(false)
@@ -153,3 +156,9 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     <AuthContext.Provider value={{ user, isLoading, login, register, logout, error }}>{children}</AuthContext.Provider>
   )
 }
+
+// Default export for the context
+export default function AuthContextComponent() {
+  return null
+}
+

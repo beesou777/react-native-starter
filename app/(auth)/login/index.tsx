@@ -1,12 +1,13 @@
-import { ActivityIndicator, Platform, SafeAreaView, ScrollView, Text, TextInput, TouchableNativeFeedback, TouchableOpacity, View } from 'react-native'
+import { ActivityIndicator, SafeAreaView, ScrollView, Text, TextInput, TouchableNativeFeedback, TouchableOpacity, View } from 'react-native'
 import { Controller, useForm } from 'react-hook-form'
-import { useAuth } from '../context/auth-contenxt'
+import { useAuth } from '@/lib/auth-context'
 import { LoginFormData, loginSchema } from './lib/schema'
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useRouter } from 'expo-router'
 import Icon from 'react-native-vector-icons/Ionicons'
 import { useState } from 'react'
 import { useToast } from '@/hooks/useToast'
+import React from 'react'
 
 export default function Login() {
     const [showPassword, setShowPassword] = useState(false)

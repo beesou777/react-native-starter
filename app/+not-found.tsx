@@ -1,6 +1,6 @@
+import React from 'react';
 import { Link, Stack } from 'expo-router';
 import { SafeAreaView, StyleSheet, Text } from 'react-native';
-
 
 export default function NotFoundScreen() {
   return (
