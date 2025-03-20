@@ -1,4 +1,3 @@
-
 # React Native App
 
 This is a React Native app built using Expo, designed for mobile devices. It integrates various packages to enable a seamless experience across Android, iOS, and web platforms. The app uses Expo Router for navigation and implements common features such as vector icons, safe area handling, and more.
@@ -8,9 +7,41 @@ This is a React Native app built using Expo, designed for mobile devices. It int
 - **Navigation**: Uses React Navigation with both stack and bottom tabs.
 - **API Integration**: Utilizes Axios for network requests and React Query for data fetching.
 - **UI Components**: Implements Expo's UI components such as status bar, splash screen, and haptics.
+- **Toast**: for toast message react-native-toast-message (use case on login/index.tsx)page 
 - **Styling**: Tailwind CSS integration via NativeWind.
 - **Platform Support**: Works across Android, iOS, and Web using Expo.
-- **Icons**: [text](https://oblador.github.io/react-native-vector-icons/) this link for icons (usage on navbar.tsx) note: to use import Icon from "react-native-vector-icons/Ionicons" here Ionicons is the container you can use /AntDesign or other 
+- **Icons**: Uses [React Native Vector Icons](https://oblador.github.io/react-native-vector-icons/) (Ionicons, AntDesign, etc.) for navigation icons.
+- **Clsx as `cn`**: For conditional styling with Tailwind CSS.
+
+### Example: Conditional Styling with `cn` (clsx)
+
+In this example, we are using the `cn` function (from the `clsx` library) to conditionally apply styles to a `TouchableOpacity` component. The `isActive` state determines if a background color (`bg-[#e6f2ff]`) is applied.
+
+### Code Example:
+
+```tsx
+import { cn } from '@/lib/utils'; // Import the cn utility
+
+<TouchableOpacity
+    key={item.name}
+    className={cn(
+        "flex-row items-center p-[12px_16px] mb-1", // Always applied classes
+        isActive && "bg-[#e6f2ff]" // Conditional class based on isActive state
+    )}
+    onPress={() => router.push(item.route as any)} // Navigation on press
+>
+    {/* Child components */}
+</TouchableOpacity>
+```
+
+### Explanation:
+- `cn()` combines the base Tailwind classes and conditionally adds classes like `bg-[#e6f2ff]` based on the value of `isActive`.
+- This pattern helps to keep the component styling clean and conditionally dynamic.
+
+Make sure that you are importing `cn` correctly from your utils (or `clsx` directly) to avoid errors.
+
+This format will give clear documentation on how to use conditional classes with `clsx` (`cn`) in your components.
+
 ## Setup
 
 ### Prerequisites
@@ -28,29 +59,49 @@ This is a React Native app built using Expo, designed for mobile devices. It int
 
 2. Install dependencies:
     ```bash
-    npm install
+    yarn install
     ```
 
 ### Running the App
 
 - To start the app on Android:
     ```bash
-    npm run android
+    yarn android
     ```
 
 - To start the app on iOS:
     ```bash
-    npm run ios
+    yarn ios
     ```
 
 - To start the app in the web browser:
     ```bash
-    npm run start
+    yarn start
     ```
 
 - To reset the project (if needed):
     ```bash
-    npm run reset-project
+    yarn reset-project
+    ```
+
+
+### Build the App
+
+Before building your app, you need to configure the project for EAS Build:
+
+- To configure the project:
+    ```bash
+    yarn configure
+    ```
+
+- To build the app on Android:
+    ```bash
+    yarn build:android
+    ```
+
+- To build the app on iOS:
+    ```bash
+    yarn build:ios
     ```
 
 ### Running Tests
@@ -64,33 +115,5 @@ npm test
 
 To lint the project:
 ```bash
-npm run lint
+yarn lint
 ```
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details.
-
-### LICENSE
-
-MIT License
-
-Copyright (c) 2025 Your Name
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.

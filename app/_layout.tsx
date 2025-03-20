@@ -8,11 +8,13 @@ import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
 import { ActivityIndicator, View } from 'react-native';
 import { AuthProvider } from './(auth)/context/auth-contenxt';
 import Toast from "react-native-toast-message";
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import CustomDrawer from '@/components/common/drawer';
 SplashScreen.preventAutoHideAsync();
 
 const queryClient = new QueryClient();
 
-const RootLayout = ({ children }: { children: React.ReactNode }) => {
+export default function RootLayout({children}:{children:React.ReactNode}) {
   const [loaded] = useFonts({
     SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
   });
@@ -34,13 +36,12 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <QueryClientProvider client={queryClient}>
       <AuthProvider>
-        <Stack screenOptions={{ headerShown: false }}>
+        <GestureHandlerRootView style={{ flex: 1 }}>
+          <CustomDrawer />
           {children}
-        </Stack>
+        </GestureHandlerRootView>
         <Toast />
       </AuthProvider>
     </QueryClientProvider>
   );
-};
-
-export default RootLayout;
+}
